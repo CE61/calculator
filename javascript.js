@@ -51,6 +51,7 @@ function operate(inputArray){ // Combine number elements next to each other in t
     }
     inputArray = inputArray.join("");
     inputArray = inputArray.split(":");
+
     console.log(inputArray + " after concat");
 
     for(let i = 0; i < inputArray.length; i++){     //multiply
@@ -77,34 +78,26 @@ function operate(inputArray){ // Combine number elements next to each other in t
      }
      console.log(inputArray + " after divide");
 
-     for(let i = 0; i < inputArray.length; i++){    //add
+     for(let i = 0; i < inputArray.length; i++){
         const a = inputArray[i];
         const b = inputArray[i+1];
         const c = inputArray[i+2];
         console.log(a + " :a \n " + b + " :b \n" + c + " :c before if statement");
         console.log(inputArray + " before splice add");
-        if(b==="+"){
+        if(b==="+"){                                 //add
             console.log(a + " :a \n " + b + " :b \n" + c + " :c after if statement");
             inputArray.splice(i,i+2);
             console.log(inputArray + " after splice");
             inputArray[i] = (parseFloat(a)+parseFloat(c)).toString();
             console.log(inputArray + " after i equals");
             i--;
-        }
-     }
-     console.log(inputArray + " after add");
-     
-     for(let i = 0; i < inputArray.length; i++){    //subtract
-        const a = inputArray[i];
-        const b = inputArray[i+1];
-        const c = inputArray[i+2];
-        if(b==="-"){
+        }else if(b==="-"){                            //subtract
           inputArray.splice(i,i+2);
             inputArray[i] = (parseFloat(a)-parseFloat(c)).toString();
             i--;
         }
      }
-     console.log(inputArray + " after subtract");
+     console.log(inputArray + " after add or subtract");
 
      textOutput.textContent = inputArray;
 }
@@ -141,9 +134,10 @@ function operate(inputArray){ // Combine number elements next to each other in t
         inputArray[inputArray.length-1]!==divideButton.textContent&&
         inputArray[inputArray.length-1]!==subtractButton.textContent&&
         inputArray[inputArray.length-1]!==addButton.textContent){
-        inputArray.push(addButton.textContent);
-        console.log(inputArray);
-        textOutput.textContent += addButton.textContent;
+          
+      inputArray.push(addButton.textContent);
+      console.log(inputArray);
+      textOutput.textContent += addButton.textContent;
     }
   });
   subtractButton.addEventListener("click",()=>{
@@ -151,6 +145,7 @@ function operate(inputArray){ // Combine number elements next to each other in t
         inputArray[inputArray.length-1]!==divideButton.textContent&&
         inputArray[inputArray.length-1]!==subtractButton.textContent&&
         inputArray[inputArray.length-1]!==addButton.textContent){
+
         inputArray.push(subtractButton.textContent);
         console.log(inputArray);
         textOutput.textContent += subtractButton.textContent;
@@ -161,6 +156,7 @@ function operate(inputArray){ // Combine number elements next to each other in t
         inputArray[inputArray.length-1]!==divideButton.textContent&&
         inputArray[inputArray.length-1]!==subtractButton.textContent&&
         inputArray[inputArray.length-1]!==addButton.textContent){
+
         inputArray.push(multiplyButton.textContent);
         console.log(inputArray);
         textOutput.textContent += multiplyButton.textContent;
@@ -171,6 +167,7 @@ function operate(inputArray){ // Combine number elements next to each other in t
         inputArray[inputArray.length-1]!==divideButton.textContent&&
         inputArray[inputArray.length-1]!==subtractButton.textContent&&
         inputArray[inputArray.length-1]!==addButton.textContent){
+
         inputArray.push(divideButton.textContent);
         console.log(inputArray);
         textOutput.textContent += divideButton.textContent;
@@ -182,6 +179,6 @@ function operate(inputArray){ // Combine number elements next to each other in t
         inputArray[inputArray.length-1]!==subtractButton.textContent&&
         inputArray[inputArray.length-1]!==addButton.textContent){
 
-            operate(inputArray);
+        operate(inputArray);
     }
   });
