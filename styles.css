@@ -1,0 +1,50 @@
+body {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    width:400px;
+    height:500px;
+    margin: 0;
+}
+.outputContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(63, 63, 63);
+    height: 100px;
+}
+.outputScreen{
+    display:flex;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    background-color: lightblue;
+    height: 60px;
+    width: 380px;
+    font-size: 36px;
+    margin: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+.inputContainer{
+    display:flex;
+    flex: 1 0 auto;
+}
+.inputColumn {
+    display: flex;
+    flex-direction: column;
+    flex:1 0 auto;
+}
+.inputColumn > button{
+    display: flex;
+    flex: 1 0 auto;
+    justify-content: center;
+    align-items: center;
+    font-size: 36px;
+    background-color: lightcyan;
+}
